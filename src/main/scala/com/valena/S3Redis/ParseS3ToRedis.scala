@@ -15,7 +15,7 @@ class ParseS3ToRedis {
 
       // Get content and parse to Map Object
       val FileContent: Map[String, Any] = jsonStrToMap.parseJson(InputStreamReader.readLine())
-      redisConnector.parseMapToS3(FileContent)
+      redisConnector.parseMapToRedis(FileContent)
 
       // TODO: Build logging schema
       println(s"Parsed $file with content $FileContent")

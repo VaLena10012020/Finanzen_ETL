@@ -6,8 +6,9 @@ case class RedisConnector() {
 
   val RedisConnector: RedisTimeSeries = new RedisTimeSeries("localhost",  6379)
 
-  def parseMapToS3(MapFile: Map[String, Any]): Unit ={
+  def parseMapToRedis(MapFile: Map[String, Any]): Unit ={
     // Get Date of json and write all other keys to a redis time series
+    // TODO: Check for 'date' key in Map and throw exception if not found
     val JsonDate = MapFile("date")
     //TODO: Is there a more elegant way?
     val vJsonDate: Long = JsonDate.toString.toLong

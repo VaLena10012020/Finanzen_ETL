@@ -1,6 +1,5 @@
-package S3Redis
+package com.valena.S3Redis
 
-import com.valena.S3Redis.jsonStrToMap
 import org.scalatest.funsuite.AnyFunSuite
 
 class jsonStrToMapTest extends AnyFunSuite {

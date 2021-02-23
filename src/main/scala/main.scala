@@ -1,6 +1,6 @@
-import S3Connector.{ParseS3ToRedis, RedisConnector}
 import awscala.Region
 import awscala.s3.{Bucket, S3}
+import com.valena.S3Redis.{ParseS3ToRedis, RedisConnector}
 
 object main extends App{
   // TODO: Load as external parameters

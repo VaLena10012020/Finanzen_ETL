@@ -1,4 +1,4 @@
-package S3Connector
+package com.valena.S3Redis
 
 import com.redislabs.redistimeseries.RedisTimeSeries
 

@@ -1,4 +1,4 @@
-package S3Connector
+package com.valena.S3Redis
 
 import awscala.s3.{Bucket, S3, S3Object}
 import com.amazonaws.services.s3.model.S3ObjectInputStream

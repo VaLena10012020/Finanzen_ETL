@@ -15,7 +15,7 @@ class jsonStrToMapTest extends AnyFunSuite {
   }
   test("A wrong json should raise Error") {
     val TestJson = """{"test":123"""
-    val result = intercept[com.fasterxml.jackson.core.io.JsonEOFException]{
+    intercept[com.fasterxml.jackson.core.io.JsonEOFException]{
       jsonStrToMap.parseJson(TestJson)
     }
   }

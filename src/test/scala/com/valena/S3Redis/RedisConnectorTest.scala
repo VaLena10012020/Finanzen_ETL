@@ -17,11 +17,11 @@ class RedisConnectorTest extends AnyFunSuite with EmbeddedRedis with BeforeAndAf
     redisPort = redis.ports().get(0)
   }
 
-  test("Write Map to redis") {
+  ignore("Write Map to redis") {
     val FileContent: Map[String, Any] = Map("test" -> 123, "date" -> 456)
     val redisConnector: RedisConnector = new RedisConnector(redisPort)
     // Test if write to redis fails, due to lack of time series
-    intercept["java.lang.RuntimeException"]{
+    intercept["redis.clients.jedis.exceptions.JedisDataException"]{
       redisConnector.parseMapToRedis(FileContent)
     }
   }

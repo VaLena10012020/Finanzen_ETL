@@ -18,3 +18,5 @@ libraryDependencies ++= Seq("com.amazonaws" % "aws-java-sdk" % "1.3.32",
 
 enablePlugins(JavaAppPackaging)
 enablePlugins(DockerPlugin)
+
+dockerBaseImage       := "openjdk:jre"

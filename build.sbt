@@ -18,5 +18,16 @@ libraryDependencies ++= Seq("com.amazonaws" % "aws-java-sdk" % "1.3.32",
 
 enablePlugins(JavaAppPackaging)
 enablePlugins(DockerPlugin)
+enablePlugins(EcrPlugin)
+
+import com.amazonaws.regions.{Region, Regions}
 
 dockerBaseImage       := "openjdk:jre"
+packageName in Docker := "finanzen_etl"
+version     in Docker := version.value
+
+region           in ecr := Region.getRegion(Regions.US_EAST_2)
+repositoryName   in ecr := "valena"
+localDockerImage in ecr := (packageName in Docker).value + ":" + (version in Docker).value
+
+push in ecr <<= (push in ecr) dependsOn (publishLocal in Docker)

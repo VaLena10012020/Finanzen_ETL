@@ -1,1 +1,0 @@
-sbt docker:publishLocal

@@ -16,4 +16,3 @@ libraryDependencies ++= Seq("com.amazonaws" % "aws-java-sdk" % "1.3.32",
                             "com.github.sebruck" %% "scalatest-embedded-redis" % "0.4.0" % "test",
                             "io.findify" %% "s3mock" % "0.2.6" % "test")
 
-enablePlugins(JavaAppPackaging)

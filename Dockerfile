@@ -3,6 +3,7 @@ FROM hseeberger/scala-sbt:11.0.6_1.3.9_2.13.1 AS build
 
 COPY ./ ./
 
+RUN sbt test
 RUN sbt compile clean package
 
 # run stage

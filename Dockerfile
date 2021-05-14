@@ -1,10 +1,12 @@
 # build stage
-FROM hseeberger/scala-sbt:11.0.6_1.3.9_2.13.1
+FROM hseeberger/scala-sbt:11.0.6_1.3.9_2.13.1 as build
 
 COPY ./ ./
 
-RUN sbt assembly
+RUN sbt 'set assemblyOutputPath in assembly := new File("./FinanzenETL.jar")' assembly
 
-COPY ./target/scala-2.13/FinanzenETL-assembly-*.jar ./
+FROM hseeberger/scala-sbt:11.0.6_1.3.9_2.13.1
 
-ENTRYPOINT scala FinanzenETL-assembly-0.1.jar
+COPY --from=build /root/FinanzenETL.jar ./FinanzenETL.jar
+
+ENTRYPOINT scala FinanzenETL.jar

@@ -16,6 +16,6 @@ script:
 deploy:
   skip_cleanup: true
   provider: script
-  script: bash build_push_image.sh
+  script: bash ./build_push_image.sh
   on:
     branch: main

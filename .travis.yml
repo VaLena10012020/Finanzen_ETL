@@ -18,4 +18,4 @@ deploy:
   provider: script
   script: ./build_push_image.sh
   on:
-    all_branches: true
+    branch: main

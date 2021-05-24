@@ -5,7 +5,6 @@ COPY ./ ./
 
 RUN sbt 'set assemblyOutputPath in assembly := new File("./FinanzenETL.jar")' assembly
 
-
 FROM openjdk:17-jdk-alpine3.13
 
 COPY --from=build /root/FinanzenETL.jar ./FinanzenETL.jar

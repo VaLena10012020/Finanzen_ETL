@@ -20,6 +20,7 @@ class ParseS3ToRedisTest extends AnyFunSuite with EmbeddedRedis with BeforeAndAf
 
   var redis: RedisServer = null
   var redisPort: Int = 0
+  var redisHost: String = "localhost"
   var api: S3Mock = null
   var client: S3 = null
   val TargetBucketName: String = "valena1databucket"
@@ -49,7 +50,7 @@ class ParseS3ToRedisTest extends AnyFunSuite with EmbeddedRedis with BeforeAndAf
     val TargetBucket = bucket
 
     // Init RedisConnector
-    implicit val redisConnector: RedisConnector = new RedisConnector(redisPort)
+    implicit val redisConnector: RedisConnector = new RedisConnector(redisHost, redisPort)
 
     // Start Pipeline
     val pipe = new ParseS3ToRedis

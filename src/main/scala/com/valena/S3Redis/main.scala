@@ -8,14 +8,16 @@ object main extends App{
   val TargetBucketName: String = "valena1databucket"
   val BucketPrefix: String = "database/raw/"
   val S3Region: Region = Region.US_EAST_2
-  val RedisPort: Int = 6379
+  val RedisPort: Int = sys.env.getOrElse("redis_port", "6379").toInt
+  val RedisHost: String = sys.env.getOrElse("redis_host", "localhost")
+  println(s"Got Variables for run: RedisHost=$RedisHost, RedisPort=$RedisPort")
 
   // Init S3
   implicit val s3: S3 = S3.at(S3Region)
   val TargetBucket: Bucket = s3.bucket(TargetBucketName).get
 
   // Init RedisConnector
-  implicit val redisConnector: RedisConnector = RedisConnector(RedisPort)
+  implicit val redisConnector: RedisConnector = RedisConnector(RedisHost, RedisPort)
 
   // Start Pipeline
   val pipe = new ParseS3ToRedis

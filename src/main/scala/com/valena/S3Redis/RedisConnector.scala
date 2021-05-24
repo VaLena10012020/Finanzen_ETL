@@ -2,10 +2,10 @@ package com.valena.S3Redis
 
 import com.redislabs.redistimeseries.RedisTimeSeries
 
-case class RedisConnector(port: Int) {
-
-  val RedisConnector: RedisTimeSeries = new RedisTimeSeries("localhost",  port)
-
+case class RedisConnector(host: String, port: Int) {
+  println("Init redis connector - start")
+  val RedisConnector: RedisTimeSeries = new RedisTimeSeries(host,  port)
+  println("Init redis connector - finished")
   def parseMapToRedis(MapFile: Map[String, Any]): Unit ={
     // Get Date of json and write all other keys to a redis time series
     // TODO: Check for 'date' key in Map and throw exception if not found

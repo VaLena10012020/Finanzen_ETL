@@ -20,4 +20,4 @@ docker build --pull=true --cache-from ${ECR_REGISTRY}/${ECR_REPOSITORY}:finanzen
 
 echo "=== Push docker image ${name} to AWS ECR ==="
 
-docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:finanzen_etl_{TRAVIS_BRANCH}
+docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:finanzen_etl

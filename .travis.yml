@@ -19,4 +19,4 @@ deploy:
   provider: script
   script: bash ./build_and_push.sh
   on:
-    all_branches: true
+    branch: main

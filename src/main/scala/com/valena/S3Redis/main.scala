@@ -8,8 +8,8 @@ object main extends App{
   val TargetBucketName: String = "valena1databucket"
   val BucketPrefix: String = "database/raw/"
   val S3Region: Region = Region.US_EAST_2
-  val RedisPort: Int = sys.env.get("redis_port").getOrElse("6379").toInt
-  val RedisHost: String = sys.env.get("redis_host").getOrElse("localhost")
+  val RedisPort: Int = sys.env.getOrElse("redis_port", "6379").toInt
+  val RedisHost: String = sys.env.getOrElse("redis_host", "localhost")
   println(s"Got Variables for run: RedisHost=$RedisHost, RedisPort=$RedisPort")
 
   // Init S3

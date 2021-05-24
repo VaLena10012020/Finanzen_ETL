@@ -7,11 +7,11 @@ name="finanzen_etl"
 
 echo "=== Build new docker image ==="
 
-docker build --pull=true --cache-from ${ECR_REGISTRY}/${ECR_REPOSITORY}:finanzen_etl \
-  -t ${name} --build-arg ECR_REPOSITORY=${ECR_REPOSITORY} .
+docker build --pull=true --cache-from ${ECR_REGISTRY}/${ECR_REPOSITORY}:${name} \
+  -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${name} --build-arg ECR_REPOSITORY=${ECR_REPOSITORY} .
 
 # to do add test script for docker image
 
 echo "=== Push docker image ${name} to AWS ECR ==="
 
-docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:finanzen_etl
+docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${name}

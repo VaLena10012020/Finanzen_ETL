@@ -10,7 +10,7 @@ RUN export scalaVersion=$(find -name "build.sbt" | head -n1 | xargs grep '[ \t]*
 RUN sbt 'set assemblyOutputPath in assembly := new File("./FinanzenETL.jar")' assembly
 
 # Production stage
-FROM openjdk:17-jdk-alpine3.13 as production
+FROM openjdk:17-jdk-alpine3.13 AS production
 
 COPY --from=build /root/scala-library.jar ./scala-library.jar
 COPY --from=build /root/FinanzenETL.jar ./FinanzenETL.jar

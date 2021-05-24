@@ -3,7 +3,8 @@
 set -e # exit immediately in case of error
 set -x # print all executed commands (=debug mode)
 
-name="finanzen_etl"
+arrIN=(${TRAVIS_REPO_SLUG//// })
+name=${arrIN[1]}
 
 echo "=== Build new docker image ==="
 
